@@ -61,10 +61,6 @@ restore the original array. To save some training data `data` into this format,
 simply run
 `np.savez_compressed("data.npz", shape=data.shape, nonzero=data.nonzero())`
 
-For strategies on preparing new training data from a collection of MIDI files,
-please see
-[here](https://github.com/wayne391/symbolic-musical-datasets/tree/master/5-track-pianoroll).
-
 ## Scripts
 
 We provide several shell scripts for easy managing the experiments. (See
@@ -89,12 +85,22 @@ We provide several shell scripts for easy managing the experiments. (See
      # Train the model
      ./scripts/run_train.sh "./exp/my_experiment/" "0"
      ```
+
    or run the experiment (training + inference + interpolation):
 
      ```sh
      # Run the experiment
      ./scripts/run_exp.sh "./exp/my_experiment/" "0"
      ```
+
+### Collect training data
+
+Run the following command to collect training data from MIDI files.
+
+  ```sh
+  # Collect training data
+  ./scripts/collect_data.sh "./midi_dir/" "data/train.npy"
+  ```
 
 ### Use pretrained models
 
